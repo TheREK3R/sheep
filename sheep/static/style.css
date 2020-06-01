@@ -10,7 +10,7 @@ h1 {
 }
 
 body {
-	background-image: url("../images/sheep.jpg");
+	background-image: url("/static/sheep.jpg");
 }
 
 table{
