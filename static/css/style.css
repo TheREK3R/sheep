@@ -1,0 +1,53 @@
+h1 {
+	margin: auto;
+	margin-top: 2%;
+	margin-bottom: 3%;
+	text-align: center;
+	opacity: .8;
+	width: max-content;
+	font-size: 100px;
+	background-color: white;
+}
+
+body {
+	background-image: url("../images/sheep.jpg");
+}
+
+table{
+	width: 80%;
+	border: 3px solid black;
+	margin: auto;
+	background-color: white;
+	opacity: .91;
+}
+
+
+td {
+	margin: auto;
+	border: 3px solid black;
+	font-size: 20px;
+	text-align: center;
+}
+.top {
+	font-size: 25px;
+}
+
+#uid {
+	width: 20%;
+	height: 20px;
+}
+
+#ser {
+	width: 20%;
+	height: 20px;
+}
+
+#pass {
+	width: 20%;
+	height: 20px;
+}
+
+#content {
+	width: 40%;
+	height: 20px;
+}
