@@ -11,7 +11,17 @@ bp = Blueprint("pages", __name__, static_folder="static")
 def index():
 	return render_template("index.html")
 
-@bp.route("/update")
-def update():
-	with open(current_app.config["DATA"], "r") as f:
-		return f.read()
+
+@bp.route("/packets/<int:num>")
+def update(num):
+	packets = getPackets()
+	return json.dumps(packets[0:num])
+
+
+def getPackets():
+	try:
+		with open(current_app.config["DATA"], "r") as f:
+			return json.loads(f.read())
+	except Exception as e:
+		print("Error reading packet data:", e)
+		return None

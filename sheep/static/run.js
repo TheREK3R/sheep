@@ -1,6 +1,8 @@
+packetNum = 20;
+
 function get_table(){
     var Http = new XMLHttpRequest();
-    Http.open("GET", "/update");
+    Http.open("GET", "/packets/"+packetNum);
     Http.send();
 
     Http.onreadystatechange=function(){
@@ -38,7 +40,7 @@ function fill_table(arr){
         table.deleteRow(i)
     }
 
-    for(var i = 0; i < 20; i++){
+    for(var i = 0; i < packetNum; i++){
         var row = table.insertRow(i+1)
         if(arr[i]){
             let c;
