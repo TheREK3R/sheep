@@ -12,28 +12,6 @@ function get_table(){
     }
 }
 
-function censor(pass){
-    var pass_len = pass.length;
-    var cen_len = parseInt(pass_len / 2);
-    var start = cen_len - parseInt(cen_len/2);
-    
-    var str = "";
-
-    for(var i=0; i < start; i++){
-        str += pass[i];
-    }
-
-    for(var i = 0; i < cen_len; i++){
-        str += "*";
-    } 
-
-    for(var i = start+cen_len; i< pass_len; i++){
-        str += pass[i];
-    }
-
-    return str;
-}
-
 function fill_table(arr){
     var table = document.getElementById("t1");
     for(var i = table.rows.length-1; i > 0 ; i--){
@@ -53,7 +31,7 @@ function fill_table(arr){
             c.id = "uid"
 
             c = row.insertCell(2);
-            c.innerText = censor(arr[i].password);
+            c.innerText = arr[i].password;
             c.id = "pass"
             
             c = row.insertCell(3);
