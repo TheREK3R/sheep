@@ -144,7 +144,7 @@ event handle_http_post_bodies(f: fa_file, data: string)
         {
         local c: connection = f$conns[cid];
 
-        # check if the table entry exists, if not, create it
+        # check if the record entry exists, if not, create it
         if ( ! c$http?$post_body )
             c$http$post_body = "";
 
@@ -155,7 +155,6 @@ event handle_http_post_bodies(f: fa_file, data: string)
         # save data
         # append b/c this can be called multiple times for the same conn
         c$http$post_body += data;
-        # print c$http$post_body;
         if ( |c$http$post_body| > 200 )
             {
             c$http$post_body = c$http$post_body[0:max_body_len] + "...";
