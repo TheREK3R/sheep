@@ -8,7 +8,7 @@ def create_app():
 
 	app.config.from_mapping(
 		SECRET_KEY="dev",
-		DATA=os.path.join(app.instance_path, "test.json")
+		DATA=os.path.join(app.instance_path, "wall_of_sheep.log")
 	)
 
 	try:

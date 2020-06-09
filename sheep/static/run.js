@@ -7,6 +7,7 @@ function get_table(){
 
     Http.onreadystatechange=function(){
         if(this.readyState == 4 && this.status == 200){
+            if (Http.responseText === "") return;
             fill_table(JSON.parse(Http.responseText))
         }
     }
@@ -23,11 +24,11 @@ function fill_table(arr){
         if(arr[i]){
             let c;
             c = row.insertCell(0);
-            c.innerText = arr[i].service;
+            c.innerText = `${arr[i]["id.resp_h"]}:${arr[i]["id.resp_p"]}`;
             c.id = "ser";
 
             c = row.insertCell(1);
-            c.innerText = arr[i].uid;
+            c.innerText = arr[i].username;
             c.id = "uid"
 
             c = row.insertCell(2);
@@ -35,7 +36,7 @@ function fill_table(arr){
             c.id = "pass"
             
             c = row.insertCell(3);
-            c.innerText = arr[i].content;
+            c.innerText = arr[i].where_found;
             c.id = "content"
         }
 

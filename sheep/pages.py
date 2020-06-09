@@ -15,13 +15,22 @@ def index():
 @bp.route("/packets/<int:num>")
 def update(num):
 	packets = getPackets()
+	if packets is None:
+		return {}
 	return json.dumps(packets[0:num])
 
 
 def getPackets():
 	try:
 		with open(current_app.config["DATA"], "r") as f:
-			packets = json.loads(f.read())
+			data = f.readlines()
+			if data == "" or data is None or len(data) == 0:
+				return None
+
+			packets = []
+			for d in data:
+				packets.append(json.loads(d))
+
 			return [censor(p) for p in packets]
 	except Exception as e:
 		print("Error reading packet data:", e)
@@ -30,7 +39,6 @@ def getPackets():
 
 def censor(packet):
 	pw = packet.get("password")
-
 	if not pw:
 		return None
 
